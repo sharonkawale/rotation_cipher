@@ -1,31 +1,39 @@
 #include <stdio.h> 
 
-void transform(char* alphabet);
+void transform(char *alphabet, char *key);
 
 
 int main() {
     
+      int i ;
    
-    char alphabet[3] = {'a','b','c'};
-    
+    char alphabet[] = {'a','b','c'};
+    char key[] = {'q','w','e'};
  
-    transform(alphabet);
+ 
+    transform(alphabet,key);
+ 
     
-    printf("%c", *alphabet);
+    for (i = 0; i<3; i++) {
+        
+        printf("%c", alphabet[i]);
+        
+    } 
+    
 }
 
 
-void transform(char *alphabet) {
+void transform(char *alphabet, char*key) {
     
     int i ;
     
-    char key[3] = {'q','w','e'};
+ 
     
-    for (i = 0; i<4; i++) {
+    for (i = 0; i<3; i++) {
         alphabet[i] = key[i];
     }
     
-    return;    
+    return ;   
 }
 
 
