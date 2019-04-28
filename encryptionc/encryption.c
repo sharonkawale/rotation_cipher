@@ -1,70 +1,59 @@
 #include <stdio.h> 
 
-char transform(char *alphabet, char *key);
-
 int main() 
 {
     
     FILE *input;
-    input = fopen("plain_text.txt", "r");
+    input = fopen("plain_text.txt", "r"); //open and read file
 
    
-    int i =0;
+    int i = 0;
    
-    char alphabet[26], inchar;
-    char key[26] = {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'};
+    char alphabet[26], inchar;   //inchar = input character
+    char key[26] = {'Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'}; 
     
-    
+   
     //for loop to initialise alphabet array
     for (i=0;i<26;i++){
         alphabet[i] = 'A'+i;
-        /*transform(alphabet,key);
-        
-        printf("%c", alphabet[i]);*/
-    } 
- 
- 
+       
+    }
     
-    while(feof(input) ==0 ) {
-        
-	    //read a character and assign to variable
-	     fscanf(input, "%c", &inchar);
-	     
+  
+    
+    while(feof(input) ==0 ) {   //while loop to go through each imput character
+    
+    fscanf(input, "%c", &inchar); //read each character and assign to variable 'inchar'
 	  
-	         if ((inchar >=65 && inchar <=90) ){   //this checks that the imput character is
-	             
-	             if (inchar == alphabet[i]){
-	                 transform(alphabet,key);
-	             inchar = alphabet[i]; }
-	                 
+	      
+	      //this if statement checks that the input is either a lower or uppercase letter
+         if ((inchar >=65 || inchar >= 97) && (inchar <=90 || inchar <=122) ){
+             
+	             if ((inchar >= 97) && (inchar <=122)) 
+	             {  
+	                 inchar = inchar - 32;    //this if statement makes lower case letter uppercase
 	             }
-	             else if (inchar != alphabet[i] ) {
-	                 while (inchar != alphabet[i] ){
-	                     i++;
-	                 }
+	             
+	         while (i < 26 && inchar != alphabet[i]) 
+	         {
+	             i++;
+	             
+	         }
 	                 
-	             transform(alphabet,key);
-	             inchar = alphabet[i]; }
+	          i = inchar - 65;
+	                 alphabet[i] = key[i];
+	                
+	             inchar = alphabet[i];
+	                 
+	        } 
+	        
 	             
 	         else inchar = inchar; 
 	       
 	    printf("%c", inchar);
+	    
     }   
-    
+   
 
 }
 
-
-char transform(char *alphabet, char*key) {
-    
-    int i ;
-    
-    
-    for (i = 0; i<26; i++) {
-        alphabet[i] = key[i];
-    }
-    
-    return *alphabet;   
-}
-
-      
