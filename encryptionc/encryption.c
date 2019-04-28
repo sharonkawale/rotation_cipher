@@ -33,15 +33,19 @@ int main()
 	  
 	         if ((inchar >=65 && inchar <=90) ){   //this checks that the imput character is
 	             
-	             
-	             if (inchar != alphabet[i] ) { //this c
-	                    i++;
-	                  alphabet[i] = 'A'+i; 
-       
+	             if (inchar == alphabet[i]){
+	                 transform(alphabet,key);
+	             inchar = alphabet[i]; }
+	                 
+	             }
+	             else if (inchar != alphabet[i] ) {
+	                 while (inchar != alphabet[i] ){
+	                     i++;
 	                 }
 	                 
 	             transform(alphabet,key);
 	             inchar = alphabet[i]; }
+	             
 	         else inchar = inchar; 
 	       
 	    printf("%c", inchar);
@@ -56,7 +60,7 @@ char transform(char *alphabet, char*key) {
     int i ;
     
     
-    for (i = 0; i<3; i++) {
+    for (i = 0; i<26; i++) {
         alphabet[i] = key[i];
     }
     
