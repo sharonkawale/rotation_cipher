@@ -16,6 +16,8 @@ int main()
     //for loop to initialise alphabet array
     for (i=0;i<26;i++){
         alphabet[i] = 'A'+i;
+        
+        
        
     }
     
@@ -25,7 +27,7 @@ int main()
     
     fscanf(input, "%c", &inchar); //read each character and assign to variable 'inchar'
 	  
-	      
+	      i = 0;
 	      //this if statement checks that the input is either a lower or uppercase letter
          if ((inchar >=65 || inchar >= 97) && (inchar <=90 || inchar <=122) ){
              
@@ -41,7 +43,7 @@ int main()
 	         }
 	    
 	        
-	                alphabet[i] = key[i];
+	                //alphabet[i] = key[i];
 	                inchar = alphabet[i]  ;
 	             
 	                 
@@ -51,7 +53,7 @@ int main()
 	         else inchar = inchar; 
 	       
 	    printf("%c", inchar);
-	    i = 0;
+	   
 	    
     }   
    
